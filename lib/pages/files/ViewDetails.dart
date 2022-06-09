@@ -1,6 +1,7 @@
 
 import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
 import 'package:admin_panel_responsive_flutter/models/Report.dart';
+import 'package:admin_panel_responsive_flutter/pages/FileTaskDetails.dart';
 import 'package:admin_panel_responsive_flutter/users.dart';
 import 'package:flutter/material.dart';
 import 'package:admin_panel_responsive_flutter/constants.dart';
@@ -151,23 +152,29 @@ class _ViewDetailsState extends State<ViewDetails> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                             children: [
-                              Container(
-
-                                child: Text("Para no : 127",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
-                                decoration: BoxDecoration(
-                                  color: Color(0xfff39c12),
-                                  borderRadius: BorderRadius.circular(5),
-
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                              ),
+                              Text("Take up the unit project to facilitate the research scholors of indexing",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
                               Text("Due Date : 31/12/2022",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
                             ],
                           ),
+
+
                           SizedBox(height: 10,),
-                          Text("Take up the unit project to facilitate the research scholors of indexing",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 10,),
-                          Text("Financial Implications: Rs 4.00 Lakh",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
+                          Row(
+                            children: [
+                              Text("ID:20170518-004",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
+                              SizedBox(width: 5,),
+                              Container(
+
+                                child: Text("File",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
+                                decoration: BoxDecoration(
+                                  color: Color(0xffff1493),
+                                  borderRadius: BorderRadius.circular(5),
+
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: 2,horizontal: 8),
+                              ),
+                            ],
+                          ),
                           SizedBox(height: 10,),
                           Row(
                             children: [
@@ -184,8 +191,41 @@ class _ViewDetailsState extends State<ViewDetails> {
                               Text("testme@gmail.com",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
                             ],
                           ),
+                          SizedBox(height: 10,),
+                          Divider(color: Color(0xffededed),),
+                          Row(
+                            children: [
+                              Text("Attachments",style: GoogleFonts.nunito(fontSize: 15,color: Colors.grey,fontStyle: FontStyle.italic),),
+                              Icon(Icons.attach_file,color: Colors.grey,size: 15,)
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+
+                                ],
+                              )
+                              // Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+                              // SizedBox(width: 5,),
+                              // Text("Ramdas R Volvoikar2.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
 
 
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          RaisedButton(
+                            child: Text("Add Comment", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
+                            onPressed: (){
+                              Navigator.of(context).pushReplacement(
+                                  new MaterialPageRoute(builder: (context) => new FilesTaskDetails()));
+                            },
+                            color: Color(0xff00a65a),
+                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                            splashColor: Colors.grey,
+                          ),
                         ],
                       ),
 
@@ -195,185 +235,14 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: Container(
 
                         width: MediaQuery.of(context).size.width/2,
-                        padding: EdgeInsets.all(20),
-                        child: Column(
 
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                              children: [
-                                Container(
-
-                                  child: Text("Delivered",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xff00cc00),
-                                    borderRadius: BorderRadius.circular(5),
-
-                                  ),
-                                  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                                ),
-                                Text("07/02/2017 2:16 PM",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                              ],
-                            ),
-                            SizedBox(height: 10,),
-                            Text("Dr. Y.Durga Prasad",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 10,),
-                            ReadMoreText(
-                              'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)',
-                              trimLines: 2,
-
-                              trimMode: TrimMode.Line,
-                              trimCollapsedText: 'Show more',
-                              trimExpandedText: 'Show less',
-                              moreStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
-                              lessStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
-                            ),
-
-                            SizedBox(height: 10,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                RaisedButton(
-                                  child: Text("Add Comment", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
-                                  onPressed: (){
-
-                                  },
-                                  color: Color(0xff00a65a),
-                                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                                  splashColor: Colors.grey,
-                                ),
-                                Text("View all Comments",style: GoogleFonts.nunito(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.grey),),
-
-                              ],
-                            ),
-
-                          ],
-                        ),
 
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Card(
-                shape: Border(left: BorderSide(color: Color(0xfff39c12), width: 4)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
 
-                      width: MediaQuery.of(context).size.width/2,
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                            children: [
-                              Container(
-
-                                child: Text("Para no : 127",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
-                                decoration: BoxDecoration(
-                                  color: Color(0xfff39c12),
-                                  borderRadius: BorderRadius.circular(5),
-
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                              ),
-                              Text("Due Date : 31/12/2022",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                            ],
-                          ),
-                          SizedBox(height: 10,),
-                          Text("Take up the unit project to facilitate the research scholors of indexing",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 10,),
-                          Text("Financial Implications: Rs 4.00 Lakh",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
-                          SizedBox(height: 10,),
-                          Row(
-                            children: [
-                              Icon(Icons.person),
-                              SizedBox(width: 5,),
-                              Text("Blosson Sofia A. Periera",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
-                              SizedBox(width: 10,),
-                              Icon(Icons.phone,color: Colors.green,),
-                              SizedBox(width: 5,),
-                              Text("9822135847",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
-                              SizedBox(width: 10,),
-                              Icon(Icons.email_outlined,color: Colors.orangeAccent,),
-                              SizedBox(width: 5,),
-                              Text("testme@gmail.com",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
-                            ],
-                          ),
-
-
-                        ],
-                      ),
-
-                    ),
-
-                    Expanded(
-                      child: Container(
-
-                        width: MediaQuery.of(context).size.width/2,
-                        padding: EdgeInsets.all(20),
-                        child: Column(
-
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                              children: [
-                                Container(
-
-                                  child: Text("Delivered",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xff00cc00),
-                                    borderRadius: BorderRadius.circular(5),
-
-                                  ),
-                                  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                                ),
-                                Text("07/02/2017 2:16 PM",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                              ],
-                            ),
-                            SizedBox(height: 10,),
-                            Text("Dr. Y.Durga Prasad",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 10,),
-                            ReadMoreText(
-                              'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)',
-                              trimLines: 2,
-
-                              trimMode: TrimMode.Line,
-                              trimCollapsedText: 'Show more',
-                              trimExpandedText: 'Show less',
-                              moreStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
-                              lessStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
-                            ),
-
-                            SizedBox(height: 10,),
-                            RaisedButton(
-                              child: Text("Add Comment", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
-                              onPressed: (){
-
-                              },
-                              color: Color(0xff00a65a),
-                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                              splashColor: Colors.grey,
-                            ),
-
-                          ],
-                        ),
-
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),

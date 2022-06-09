@@ -304,7 +304,69 @@ class _ViewPageState extends State<ViewPage> {
                                 RaisedButton(
                                   child: Text("Add Comment", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
                                   onPressed: (){
+                                    showDialog(
+                                        context: context,
+                                        builder: (_) => new AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.all(
+                                                  Radius.circular(10.0))),
+                                          title: Text("Adding comment towards Para No : 136",style: GoogleFonts.nunito(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),
+                                          content: Builder(
+                                            builder: (context) {
+                                              // Get available height and width of the build area of this widget. Make a choice depending on the size.
+                                              var height = MediaQuery.of(context).size.height;
+                                              var width = MediaQuery.of(context).size.width;
 
+                                              return Container(
+
+                                                width: width /3,
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  children: [
+                                                    Text('Take up a unit project to facilitate the research scholars of indexing, transcribing and preparing summaries of Modi-Marathi and Persian records'),
+                                                    SizedBox(height: 10,),
+                                                    TextField(
+
+                                                      maxLines: 5,
+                                                      keyboardType: TextInputType.multiline,
+                                                      decoration: InputDecoration(
+                                                        fillColor: Colors.white,
+                                                        filled: true,
+                                                        focusedBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.circular(5.0),
+                                                          borderSide: BorderSide(color:Color(0xff1e224c)),
+                                                        ),
+                                                        enabledBorder: const OutlineInputBorder(
+                                                          borderRadius: const BorderRadius.all(
+                                                            const Radius.circular(5.0),
+                                                          ),
+                                                          borderSide:
+                                                          const BorderSide(color:Color(0xff1e224c)),
+                                                        ),
+                                                        hintText: "Comment",
+
+                                                        // Added this
+                                                        contentPadding: EdgeInsets.all(17), // Added this
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 10,),
+                                                    RaisedButton(
+                                                      child: Text("Submit", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
+                                                      onPressed: (){
+
+                                                      },
+                                                      color: Color(0xff00a65a),
+                                                      padding: EdgeInsets.symmetric(vertical: 20,horizontal: 50),
+                                                      splashColor: Colors.grey,
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        )
+                                    );
                                   },
                                   color: Color(0xff00a65a),
                                   padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),

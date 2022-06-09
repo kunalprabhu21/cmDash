@@ -8,6 +8,7 @@ import 'package:admin_panel_responsive_flutter/utils/ThemeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_view/calendar_view.dart';
 
+import 'pages/FilesDetails.dart';
 import 'pages/budget/ViewPage.dart';
 void main() {
 
