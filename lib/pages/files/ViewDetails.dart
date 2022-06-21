@@ -1,10 +1,11 @@
 
-import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
-import 'package:admin_panel_responsive_flutter/pages/FileTaskDetails.dart';
-import 'package:admin_panel_responsive_flutter/users.dart';
+import 'package:cm_dashboard/controllers/TableController.dart';
+import 'package:cm_dashboard/models/Report.dart';
+import 'package:cm_dashboard/pages/FileTaskDetails.dart';
+import 'package:cm_dashboard/pages/widgets/Badges.dart';
+import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
-import 'package:admin_panel_responsive_flutter/constants.dart';
+import 'package:cm_dashboard/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';
 
@@ -28,7 +29,7 @@ class _ViewDetailsState extends State<ViewDetails> {
   @override
   void initState() {
     super.initState();
-    tableController(context, listen: false).fetchBudgetList(context);
+
   }
 
   @override
@@ -142,6 +143,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                   children: [
                     Container(
 
+
                       width: MediaQuery.of(context).size.width/2,
                       padding: EdgeInsets.all(20),
                       child: Column(
@@ -163,16 +165,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                             children: [
                               Text("ID:20170518-004",style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
                               SizedBox(width: 5,),
-                              Container(
-
-                                child: Text("File",style: GoogleFonts.nunito(fontSize: 13,fontWeight: FontWeight.bold),),
-                                decoration: BoxDecoration(
-                                  color: Color(0xffff1493),
-                                  borderRadius: BorderRadius.circular(5),
-
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: 2,horizontal: 8),
-                              ),
+                              Badges(text: "File",colorValue:0xffff1493,),
                             ],
                           ),
                           SizedBox(height: 10,),
@@ -204,18 +197,28 @@ class _ViewDetailsState extends State<ViewDetails> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-
+                                  Image.asset("images/pdf.png",height: 30,width: 30,),
+                                  Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+                                ],
+                              ),
+                              VerticalDivider(width: 10,color: Colors.amber,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset("images/img.png",height: 30,width: 30,),
+                                  Text("Ramdas R Volvoikar.png",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
                                 ],
                               )
-                              // Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+
                               // SizedBox(width: 5,),
                               // Text("Ramdas R Volvoikar2.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
 
 
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 40,),
                           RaisedButton(
                             child: Text("Add Comment", style: GoogleFonts.nunito(fontSize: 12,color: Colors.white)),
                             onPressed: (){
@@ -235,7 +238,90 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: Container(
 
                         width: MediaQuery.of(context).size.width/2,
+                        padding: EdgeInsets.all(20),
+                        child: Column(
 
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                              children: [
+                                Badges(text: "Pending",colorValue:0xffff0000,),
+                                Text("07/02/2017 2:16 PM",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Text("Dr. Y.Durga Prasad",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
+                            SizedBox(height: 10,),
+                            ReadMoreText(
+                              'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)',
+                              trimLines: 2,
+
+                              trimMode: TrimMode.Line,
+                              trimCollapsedText: 'Show more',
+                              trimExpandedText: 'Show less',
+                              moreStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
+                              lessStyle: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.orangeAccent),
+                            ),
+
+                            SizedBox(height: 10,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset("images/pdf.png",height: 30,width: 30,),
+                                    Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+                                  ],
+                                ),
+                                VerticalDivider(width: 10,color: Colors.amber,),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset("images/img.png",height: 30,width: 30,),
+                                    Text("Ramdas R Volvoikar.png",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+                                  ],
+                                ),
+
+                                // SizedBox(width: 5,),
+                                // Text("Ramdas R Volvoikar2.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+
+
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Color(0xffededed)
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Me",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
+                                      Text("31/12/2022 3:23 PM",style: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Row(
+
+                                    children: [
+                                      Badges(text: "Xerox",colorValue:0xff808080,),
+                                      SizedBox(width: 10,),
+                                      Badges(text: "Close",colorValue:0xff808080,),
+                                    ],
+                                  )
+                                  
+                                ],
+                              ),
+                            )
+
+                          ],
+                        ),
 
                       ),
                     ),

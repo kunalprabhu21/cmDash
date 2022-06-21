@@ -33,11 +33,9 @@ class ThemeNotifier with ChangeNotifier {
       color:Color(0xff2D363F),
     ),
     textTheme: TextTheme(
-headline2: GoogleFonts.nunito( fontSize: 15,
-
-    fontWeight: FontWeight.bold,
-    color: Colors.black),
+    headline2: GoogleFonts.nunito(fontSize: 16,fontWeight: FontWeight.bold),
         button: TextStyle(color: Colors.black,fontSize: 12),
+
         headline1: GoogleFonts.nunito( fontSize: 25,
 
             fontWeight: FontWeight.bold,

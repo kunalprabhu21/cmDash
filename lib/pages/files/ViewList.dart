@@ -1,12 +1,12 @@
 
-import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
-import 'package:admin_panel_responsive_flutter/pages/FilesDetails.dart';
-import 'package:admin_panel_responsive_flutter/pages/files/ViewDetails.dart';
+import 'package:cm_dashboard/controllers/TableController.dart';
+import 'package:cm_dashboard/models/Report.dart';
+import 'package:cm_dashboard/pages/FilesDetails.dart';
+import 'package:cm_dashboard/pages/files/ViewDetails.dart';
 
-import 'package:admin_panel_responsive_flutter/users.dart';
+import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
-import 'package:admin_panel_responsive_flutter/constants.dart';
+import 'package:cm_dashboard/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Todo {

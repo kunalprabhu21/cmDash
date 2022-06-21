@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/fluttermapp/admin_panel_responsive_flutter/BuildConfig.java
- com.fluttermapp.admin_panel_responsive_flutter.BuildConfig

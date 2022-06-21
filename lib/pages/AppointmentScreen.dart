@@ -1,19 +1,21 @@
 
-import 'package:admin_panel_responsive_flutter/constants.dart';
-import 'package:admin_panel_responsive_flutter/controllers/CalendarController.dart';
-import 'package:admin_panel_responsive_flutter/controllers/MenuController.dart';
-import 'package:admin_panel_responsive_flutter/pages/drawer/drawer_page.dart';
-import 'package:admin_panel_responsive_flutter/pages/files/ViewList.dart';
+import 'package:cm_dashboard/utils/constants.dart';
+import 'package:cm_dashboard/controllers/CalendarController.dart';
+import 'package:cm_dashboard/controllers/MenuController.dart';
+import 'package:cm_dashboard/pages/appointments/CalenderView.dart';
+import 'package:cm_dashboard/pages/drawer/DrawerPage.dart';
+import 'package:cm_dashboard/pages/files/ViewList.dart';
+import 'package:cm_dashboard/pages/widgets/Badges.dart';
+import 'package:cm_dashboard/pages/widgets/CustomButtons.dart';
 
-import 'package:admin_panel_responsive_flutter/pages/widgets/SideBar.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/app_bar_widget.dart';
-import 'package:admin_panel_responsive_flutter/responsive_layout.dart';
+import 'package:cm_dashboard/pages/widgets/SideBar.dart';
+import 'package:cm_dashboard/pages/widgets/AppBar.dart';
+import 'package:cm_dashboard/utils/responsive_layout.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'panel_center/panel_center_page.dart';
-import 'panel_right/panel_right_page.dart';
+
 
 
 
@@ -37,6 +39,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   }
 
 
+
+
   @override
   Widget build(BuildContext context) {
     final controllerCalendar = context.watch<CaledarController>();
@@ -54,8 +58,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         phone: currentIndex == 0
             ? ViewList()
             : currentIndex == 1
-            ? PanelCenterPage()
-            : PanelRightPage(),
+            ? Container()
+            : Container(),
         // tablet: Row(
         //   children: [
         //     Expanded(child: PanelLeftPage()),
@@ -85,103 +89,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             Expanded(
               // It takes 5/6 part of the screen
                 flex: 6,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Text(simplifyDateDMY(controllerCalendar.now,"MMM y"),style: Theme.of(context).textTheme.headline1,)
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              RaisedButton(
-                                child: Text("Today", style: Theme.of(context).textTheme.bodyText2),
-                                onPressed: (){
-                                  controllerCalendar.showToday();
-                                },
-                                color: Theme.of(context).backgroundColor,
-                                padding: EdgeInsets.symmetric(vertical: defaultPaddingCalenderButtons),
-                                splashColor: Colors.grey,
-                              ),
-                              SizedBox(width: 5,),
-                              TextButton(
-                                onPressed: () {
-                                  controllerCalendar.prevDate();
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Theme.of(context).backgroundColor,
-                                  minimumSize: Size.zero,
-                                  // padding: EdgeInsets.zero,// Set this
-                                  // and this
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(Icons.arrow_back_ios,color: Colors.black,),
-                                ),
-                              ),
-                              SizedBox(width: 5,),
-                              TextButton(
-                                onPressed: () {
-                                  controllerCalendar.nextDate();
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Theme.of(context).backgroundColor,
-                                  minimumSize: Size.zero,
-                                  // padding: EdgeInsets.zero,// Set this
-                                  // and this
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(Icons.arrow_forward_ios,color: Colors.black,),
-                                ),
-                              ),
-
-                              SizedBox(width: 10,),
-                              RaisedButton(
-                                child: Text("Month", style: Theme.of(context).textTheme.bodyText2),
-                                onPressed: (){
-                                  controllerCalendar.setCalendarView("month");
-                                },
-                                color: Theme.of(context).backgroundColor,
-                                padding: EdgeInsets.symmetric(vertical: defaultPaddingCalenderButtons),
-                                splashColor: Colors.grey,
-                              ),
-                              RaisedButton(
-                                child: Text("Day", style: Theme.of(context).textTheme.bodyText2),
-                                onPressed: (){
-                                  controllerCalendar.setCalendarView("day");
-                                },
-                                color: Theme.of(context).backgroundColor,
-                                padding: EdgeInsets.symmetric(vertical: defaultPaddingCalenderButtons),
-                                splashColor: Colors.grey,
-                              ),
-                              RaisedButton(
-                                child: Text("Week", style: Theme.of(context).textTheme.bodyText2),
-                                onPressed: (){
-                                  controllerCalendar.setCalendarView("week");
-                                },
-                                color: Theme.of(context).backgroundColor,
-                                padding: EdgeInsets.symmetric(vertical: defaultPaddingCalenderButtons),
-                                splashColor: Colors.grey,
-                              ),
-                            ],
-                          )
-
-
-                        ],
-                      ),
-                    ),
-
-                    Expanded(
-                        child: controllerCalendar.activeView
-                    )
-                  ],
-                )
+                child: CalendarViewPage()
             ),
           ],
         ),

@@ -1,4 +1,4 @@
-name: admin_panel_responsive_flutter
+name: cm_dashboard
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -25,7 +25,6 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.1
-  fl_chart: ^0.36.2
   provider: ^5.0.0
   data_table_2: ^2.0.3
   calendar_view:
@@ -34,6 +33,8 @@ dependencies:
   google_fonts: ^2.1.0
   marquee:
   readmore:
+  connectivity_plus:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,12 @@
 
-import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
-import 'package:admin_panel_responsive_flutter/models/Status.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/CustomRadioButton.dart';
-import 'package:admin_panel_responsive_flutter/users.dart';
+import 'package:cm_dashboard/controllers/CmActionController.dart';
+import 'package:cm_dashboard/controllers/TableController.dart';
+import 'package:cm_dashboard/models/Report.dart';
+import 'package:cm_dashboard/models/Status.dart';
+import 'package:cm_dashboard/pages/widgets/CustomRadioButton.dart';
+import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
-import 'package:admin_panel_responsive_flutter/constants.dart';
+import 'package:cm_dashboard/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';
 
@@ -23,6 +24,7 @@ class ViewTaskDetails extends StatefulWidget {
 class _ViewTaskDetailsState extends State<ViewTaskDetails> {
   int? sortColumnIndex;
   bool isAscending = false;
+
   final columns = ['id', 'Department', 'Total','Completed','Pending','Closed'];
   final list = ['id', 'Department', 'Total','Completed','Pending','Closed'];
   late List<Records> users;
@@ -33,18 +35,24 @@ class _ViewTaskDetailsState extends State<ViewTaskDetails> {
   String radioButtonValueAction = "1";
   String radioButtonValueXerox = "1";
   String radioButtonValueRTP = "1";
+
   @override
   void initState() {
     super.initState();
-    tableController(context, listen: false).fetchBudgetList(context);
+    cmActionController(context, listen: false).initView();
     getStatusList = getStatus()!;
     getXeroxList = getXerox()!;
     getRTPList = getRTP()!;
   }
 
+
+
+
+
   @override
   Widget build(BuildContext context) {
     final controller = tableController(context);
+    final controllerCmAction = cmActionController(context);
     controller1 = controller;
     return Scaffold(
       body: SingleChildScrollView(
@@ -135,16 +143,88 @@ class _ViewTaskDetailsState extends State<ViewTaskDetails> {
                                   for(RadioModel item in getStatusList) GestureDetector(
                                     onTap: (){
                                       setState(() {
+                                        controllerCmAction.handleVisibility(item.getName.toString());
+
                                         radioButtonValueAction = item.getId.toString();
+
 
                                       });
                                     },
-                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueAction,
+                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueAction,lastBorderIndex: getStatusList.length,
                                   ),
                                   )
                                 ],
                               ),
                             ],
+                          ),
+                          SizedBox(height: 10,),
+                          Visibility(
+                            visible: controllerCmAction.showReassignRow,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("REASSIGN",style: GoogleFonts.nunito(color: Colors.black),),
+                                    Row(
+
+                                      children: [
+
+                                        Container(
+                                          child: GestureDetector(
+
+                                              child: Text(controllerCmAction.SelectedDateExtend!,style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.black,),),
+                                                  onTap: (){
+
+                                                    controllerCmAction.openDatePicker(context,"extend");
+
+                                                  },
+
+                                          ),
+
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                // SizedBox(height: 10,),
+                              ],
+                            ),
+                          ),
+                          Visibility(
+                            visible: controllerCmAction.showExtendRow,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("EXTEND",style: GoogleFonts.nunito(color: Colors.black),),
+                                    Row(
+
+                                      children: [
+
+                                        Container(
+                                          child: GestureDetector(
+
+                                            child: Text(controllerCmAction.SelectedDateReassign!,style: GoogleFonts.nunito(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.black,),),
+                                            onTap: (){
+
+                                              controllerCmAction.openDatePicker(context,"reassign");
+
+                                            },
+
+                                          ),
+
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
                           ),
                           SizedBox(height: 10,),
                           Row(
@@ -162,7 +242,7 @@ class _ViewTaskDetailsState extends State<ViewTaskDetails> {
 
                                       });
                                     },
-                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueXerox,
+                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueXerox,lastBorderIndex: getXeroxList.length,
                                   ),
                                   )
                                 ],
@@ -170,7 +250,7 @@ class _ViewTaskDetailsState extends State<ViewTaskDetails> {
                             ],
                           ),
                           SizedBox(height: 10,),
-                          Row(
+                          Row (
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -185,7 +265,7 @@ class _ViewTaskDetailsState extends State<ViewTaskDetails> {
 
                                       });
                                     },
-                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueRTP,
+                                    child: MyRadioListTile(text: item.getName.toString(),id: item.getId.toString(),activeIndex: radioButtonValueRTP,lastBorderIndex: getRTPList.length,
                                   ),
                                   )
                                 ],

@@ -1,16 +1,12 @@
-import 'package:admin_panel_responsive_flutter/constants.dart';
-import 'package:admin_panel_responsive_flutter/controllers/MenuController.dart';
-import 'package:admin_panel_responsive_flutter/pages/budget/ListPage.dart';
-import 'package:admin_panel_responsive_flutter/pages/budget/ViewPage.dart';
-import 'package:admin_panel_responsive_flutter/pages/drawer/drawer_page.dart';
-import 'package:admin_panel_responsive_flutter/pages/files/ViewList.dart';
-
-import 'package:admin_panel_responsive_flutter/pages/panel_center/panel_center_page.dart';
-
-import 'package:admin_panel_responsive_flutter/pages/panel_right/panel_right_page.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/SideBar.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/app_bar_widget.dart';
-import 'package:admin_panel_responsive_flutter/responsive_layout.dart';
+import 'package:cm_dashboard/utils/constants.dart';
+import 'package:cm_dashboard/controllers/MenuController.dart';
+import 'package:cm_dashboard/pages/budget/ListPage.dart';
+import 'package:cm_dashboard/pages/budget/ViewPage.dart';
+import 'package:cm_dashboard/pages/drawer/DrawerPage.dart';
+import 'package:cm_dashboard/pages/files/ViewList.dart';
+import 'package:cm_dashboard/pages/widgets/SideBar.dart';
+import 'package:cm_dashboard/pages/widgets/AppBar.dart';
+import 'package:cm_dashboard/utils/responsive_layout.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,8 +43,8 @@ class _BudgetDetailsState extends State<BudgetDetails> {
         phone: currentIndex == 0
             ? ViewList()
             : currentIndex == 1
-            ? PanelCenterPage()
-            : PanelRightPage(),
+            ? Container()
+            : Container(),
         // tablet: Row(
         //   children: [
         //     Expanded(child: PanelLeftPage()),

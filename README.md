@@ -1,4 +1,4 @@
-# admin_panel_responsive_flutter
+# cm_dashboard
 
 A new Flutter application.
 

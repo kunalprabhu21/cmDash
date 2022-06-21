@@ -1,8 +1,8 @@
 
-import 'package:admin_panel_responsive_flutter/constants.dart';
-import 'package:admin_panel_responsive_flutter/controllers/CalendarController.dart';
-import 'package:admin_panel_responsive_flutter/pages/AppointmentScreen.dart';
-import 'package:admin_panel_responsive_flutter/pages/Home.dart';
+import 'package:cm_dashboard/utils/constants.dart';
+import 'package:cm_dashboard/controllers/CalendarController.dart';
+import 'package:cm_dashboard/pages/AppointmentScreen.dart';
+import 'package:cm_dashboard/pages/Home.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

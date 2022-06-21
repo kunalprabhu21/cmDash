@@ -2,9 +2,9 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:admin_panel_responsive_flutter/pages/widgets/DayView.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/MonthView.dart';
-import 'package:admin_panel_responsive_flutter/pages/widgets/WeekView.dart';
+import 'package:cm_dashboard/pages/widgets/DayView.dart';
+import 'package:cm_dashboard/pages/widgets/MonthView.dart';
+import 'package:cm_dashboard/pages/widgets/WeekView.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:cell_calendar/cell_calendar.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +19,15 @@ CaledarController caledarController(context, {bool listen: true}) =>
 class CaledarController extends ChangeNotifier {
 
   final cellCalendarPageController = CellCalendarPageController();
-  Widget activeView = BuildMonthView();
+  final cellCalendarPageControllerWeekView = CellCalendarPageController();
+  Widget activeView = BuildWeekView();
   DateTime now = DateTime.now();
   DateTime day = DateTime.now();
   DateTime time = DateTime.now();
+  DateTime weekStartDate = DateTime.now();
+  DateTime weekEndDate = DateTime.now();
   GlobalKey<DayViewState>? state = new GlobalKey();
+  GlobalKey<WeekViewState>? Weekstate = new GlobalKey();
   EventController dayViewController = new EventController();
 
   // initDayView(){
@@ -82,6 +86,20 @@ class CaledarController extends ChangeNotifier {
     var newDay = new DateTime(day.year, day.month, day.day + 1);
     state!.currentState!.animateToDate(newDay);
     day = newDay;
+    notifyListeners();
+  }
+
+  nextWeek(){
+    var newDay = new DateTime(day.year, day.month, day.day + 7);
+    Weekstate!.currentState!.animateToWeek(newDay);
+    weekStartDate = newDay;
+    notifyListeners();
+  }
+
+  prevWeek(){
+    var newDay = new DateTime(day.year, day.month, day.day - 7);
+    Weekstate!.currentState!.animateToWeek(newDay);
+    weekEndDate = newDay;
     notifyListeners();
   }
   prevDay(){

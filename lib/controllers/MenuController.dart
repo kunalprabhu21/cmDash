@@ -1,4 +1,4 @@
-import 'package:admin_panel_responsive_flutter/models/Menu.dart';
+import 'package:cm_dashboard/models/Menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

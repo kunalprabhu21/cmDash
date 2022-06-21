@@ -1,10 +1,17 @@
-import 'package:admin_panel_responsive_flutter/controllers/CalendarController.dart';
-import 'package:admin_panel_responsive_flutter/controllers/MenuController.dart';
-import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
-import 'package:admin_panel_responsive_flutter/pages/Splash.dart';
+import 'package:cm_dashboard/controllers/AddTaskController.dart';
+import 'package:cm_dashboard/controllers/CalendarController.dart';
+import 'package:cm_dashboard/controllers/CmActionController.dart';
+import 'package:cm_dashboard/controllers/InternetController.dart';
+import 'package:cm_dashboard/controllers/LoginController.dart';
+import 'package:cm_dashboard/controllers/MenuController.dart';
+import 'package:cm_dashboard/controllers/TableController.dart';
+import 'package:cm_dashboard/controllers/TaskController.dart';
+import 'package:cm_dashboard/pages/AddTask.dart';
+import 'package:cm_dashboard/pages/AppointmentScreen.dart';
+import 'package:cm_dashboard/pages/Splash.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:admin_panel_responsive_flutter/utils/ThemeConfig.dart';
+import 'package:cm_dashboard/utils/ThemeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_view/calendar_view.dart';
 
@@ -31,6 +38,21 @@ void main() {
           ),
           ChangeNotifierProvider<TableController>(
             create: (BuildContext context) => TableController(),
+          ),
+          ChangeNotifierProvider<CmActionController>(
+            create: (BuildContext context) => CmActionController(),
+          ),
+          ChangeNotifierProvider<TaskController>(
+            create: (BuildContext context) => TaskController(),
+          ),
+          ChangeNotifierProvider<AddTaskController>(
+            create: (BuildContext context) => AddTaskController(),
+          ),
+          ChangeNotifierProvider<LoginController>(
+            create: (BuildContext context) => LoginController(),
+          ),
+          ChangeNotifierProvider<InternetController>(
+            create: (BuildContext context) => InternetController(),
           ),
         ],
         child: MyApp(),

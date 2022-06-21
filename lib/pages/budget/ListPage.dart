@@ -1,12 +1,12 @@
 
-import 'package:admin_panel_responsive_flutter/controllers/TableController.dart';
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
-import 'package:admin_panel_responsive_flutter/pages/BudgetDetails.dart';
+import 'package:cm_dashboard/controllers/TableController.dart';
+import 'package:cm_dashboard/models/Report.dart';
+import 'package:cm_dashboard/pages/BudgetDetails.dart';
 
-import 'package:admin_panel_responsive_flutter/pages/budget/ViewPage.dart';
-import 'package:admin_panel_responsive_flutter/users.dart';
+import 'package:cm_dashboard/pages/budget/ViewPage.dart';
+import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
-import 'package:admin_panel_responsive_flutter/constants.dart';
+import 'package:cm_dashboard/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Todo {
@@ -87,6 +87,22 @@ class _ListPageState extends State<ListPage> {
               ),
               SizedBox(height: 10,),
               controller.isLoading ? CircularProgressIndicator() :
+              TextField(
+                  onChanged: (value) => controller!.runFilter(value),
+                  decoration: InputDecoration(
+
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: "Search here",
+                      contentPadding: EdgeInsets.only(left: 26.0, bottom: 8.0, right: 50.0),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white, width: 0.5),
+                        borderRadius: BorderRadius.circular(26),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white, width: 0.5),
+                        borderRadius: BorderRadius.circular(26),
+                      ))),
               Card(
                 child: DataTable(
 

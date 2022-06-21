@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fluttermapp.admin_panel_responsive_flutter">
+    package="com.fluttermapp.cm_dashboard">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="admin_panel_responsive_flutter"
+        android:label="cm_dashboard"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,9 +1,11 @@
 
 
-import 'package:admin_panel_responsive_flutter/pages/Home.dart';
+import 'package:cm_dashboard/controllers/LoginController.dart';
+import 'package:cm_dashboard/pages/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -41,7 +43,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
+    final controllerLogin = context.watch<LoginController>();
     return Container(
       height: MediaQuery.of(context).size.height,
       child: Column(
@@ -58,7 +60,7 @@ class Body extends StatelessWidget {
           SizedBox(height: 20,),
           Container(
             width: 320,
-            child: _formLogin(context),
+            child: _formLogin(context,controllerLogin),
           )
 
         ],
@@ -66,10 +68,11 @@ class Body extends StatelessWidget {
     );
   }
 
-  Widget _formLogin(BuildContext context) {
+  Widget _formLogin(BuildContext context,LoginController controller_) {
     return Column(
       children: [
         TextField(
+          controller:controller_.name ,
           decoration: InputDecoration(
             hintText: 'Enter email or Phone number',
             filled: true,
@@ -88,6 +91,7 @@ class Body extends StatelessWidget {
         ),
         SizedBox(height: 30),
         TextField(
+          controller: controller_.password,
           obscureText: true,
           decoration: InputDecoration(
 
@@ -130,8 +134,7 @@ class Body extends StatelessWidget {
                 height: 50,
                 child: Center(child: Text("Sign In"))),
             onPressed: (){
-              Navigator.of(context).pushReplacement(
-                  new MaterialPageRoute(builder: (context) => new Home()));
+              controller_.logInUser(context);
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.deepPurple,

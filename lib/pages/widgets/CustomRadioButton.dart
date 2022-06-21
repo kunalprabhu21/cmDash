@@ -6,12 +6,14 @@ class MyRadioListTile<T> extends StatelessWidget {
   final String text;
   final String id;
   final String activeIndex;
+  final int lastBorderIndex;
 
   const MyRadioListTile({
 
     required this.text,
     required this.id,
     required this.activeIndex,
+    required this.lastBorderIndex,
   });
 
   @override
@@ -35,7 +37,7 @@ class MyRadioListTile<T> extends StatelessWidget {
           color: Color(0xff1e224c),
           width: 2.0
       ) : BorderSide(width: 0,color: Colors.transparent)!,
-            right: index == "4" ? BorderSide(
+            right: index == lastBorderIndex.toString() ? BorderSide(
                 color: Color(0xff1e224c),
                 width: 2.0
             ) : BorderSide(width: 0,color: Colors.transparent)!,

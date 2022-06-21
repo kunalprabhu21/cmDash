@@ -1,6 +1,6 @@
 
-import 'package:admin_panel_responsive_flutter/controllers/CalendarController.dart';
-import 'package:admin_panel_responsive_flutter/eventList.dart';
+import 'package:cm_dashboard/controllers/CalendarController.dart';
+import 'package:cm_dashboard/eventList.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:cell_calendar/cell_calendar.dart';
@@ -56,7 +56,7 @@ class BuildMonthView extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 12),
                     color: event.eventBackgroundColor,
                     child: Text(
-                      event.eventDesc,
+                      event.eventName,
                       style: TextStyle(color: event.eventTextColor),
                     ),
                   ),

@@ -1,6 +1,6 @@
 
-import 'package:admin_panel_responsive_flutter/constants.dart';
-import 'package:admin_panel_responsive_flutter/controllers/CalendarController.dart';
+import 'package:cm_dashboard/utils/constants.dart';
+import 'package:cm_dashboard/controllers/CalendarController.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

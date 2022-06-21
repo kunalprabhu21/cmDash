@@ -5,7 +5,7 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = admin_panel_responsive_flutter
+PRODUCT_NAME = cm_dashboard
 
 // The application's bundle identifier
 PRODUCT_BUNDLE_IDENTIFIER = com.fluttermapp.adminPanelResponsiveFlutter

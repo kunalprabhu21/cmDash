@@ -1,4 +1,4 @@
-package com.fluttermapp.admin_panel_responsive_flutter
+package com.fluttermapp.cm_dashboard
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,5 +1,6 @@
-import 'package:admin_panel_responsive_flutter/controllers/MenuController.dart';
-import 'package:admin_panel_responsive_flutter/pages/Login.dart';
+import 'package:cm_dashboard/controllers/InternetController.dart';
+import 'package:cm_dashboard/controllers/MenuController.dart';
+import 'package:cm_dashboard/pages/Login.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
+    intenetController(context, listen: false).initInternetState();
     new Timer(new Duration(milliseconds: 3000), () { // set your desired delay time here
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => new LoginPage()));

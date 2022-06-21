@@ -1,7 +1,7 @@
 
 
-import 'package:admin_panel_responsive_flutter/models/Budget.dart';
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
+import 'package:cm_dashboard/models/Budget.dart';
+import 'package:cm_dashboard/models/Report.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +13,7 @@ class TableController extends ChangeNotifier {
   bool _isLoading = true;
   List<Records> _reportList = [];
   List<Budget> _budgetList = [];
+  List<Budget> _budgetSearchList = [];
 
   bool get isLoading => _isLoading;
   List<Records> get reportList => _reportList;
@@ -38,10 +39,31 @@ class TableController extends ChangeNotifier {
 
   }
 
+  void runFilter(String enteredKeyword) {
+
+    List<Budget> results = [];
+
+    if (enteredKeyword.isEmpty) {
+      results = _budgetSearchList;
+    } else {
+      results = _budgetSearchList
+          .where((user) =>
+          user.department!.toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+      // we use the toLowerCase() method to make it case-insensitive
+    }
+    _budgetList = results;
+
+    // Refresh the UI
+    notifyListeners();
+
+  }
+
   fetchBudgetList(context){
 
     _isLoading = true;
     budgetList.clear();
+    _budgetSearchList.clear();
     Budget records = new Budget(id: "1", department: "Captain of Ports", total: 3, delivered: 2, with_govt: 1, with_dept: 1, yet_to_start: 0);
     Budget records1 = new Budget(id: "2", department: "Civil Supplies", total: 2, delivered: 1, with_govt: 1, with_dept: 0, yet_to_start: 0);
     Budget records2 = new Budget(id: "3", department: "Civil Aviation", total: 5, delivered: 2, with_govt: 2, with_dept: 1, yet_to_start: 0);
@@ -50,6 +72,13 @@ class TableController extends ChangeNotifier {
     budgetList.add(records);
     budgetList.add(records1);
     budgetList.add(records2);
+
+    _budgetSearchList.add(records);
+    _budgetSearchList.add(records1);
+    _budgetSearchList.add(records2);
+
+
+
     _isLoading = false;
     // notifyListeners();
 

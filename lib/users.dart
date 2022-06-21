@@ -1,7 +1,7 @@
 
 
 
-import 'package:admin_panel_responsive_flutter/models/Report.dart';
+import 'package:cm_dashboard/models/Report.dart';
 
 final allUsers = <Records>[
 Records(id: "1",department: "Revenue",open: 38,completed: 3,pending: 2,closed: 20),

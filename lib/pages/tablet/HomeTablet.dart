@@ -1,9 +1,9 @@
 
 
-import 'package:admin_panel_responsive_flutter/pages/BudgetList.dart';
-import 'package:admin_panel_responsive_flutter/users.dart';
+import 'package:cm_dashboard/pages/BudgetList.dart';
+import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
-import 'package:admin_panel_responsive_flutter/constants.dart';
+import 'package:cm_dashboard/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
 
