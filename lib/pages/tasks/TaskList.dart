@@ -48,7 +48,7 @@ class _TaskListPageState extends State<TaskListPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Task Tracker",style: Theme.of(context).textTheme.headline1,),
+                  Text("Schemes",style: Theme.of(context).textTheme.headline1,),
                   Text("Last Updated On: 26 May 2022",style: Theme.of(context).textTheme.headline2,)
                 ],
               ),
@@ -79,19 +79,19 @@ class _TaskListPageState extends State<TaskListPage> {
                   sortColumnIndex: sortColumnIndex,
                   columns: <DataColumn>[
                     DataColumn(
-                      label: Text('Officer'),
+                      label: Text('Scheme'),
                       onSort: onSort,
                     ),DataColumn(
-                      label: Text('Open'),
+                      label: Text('Beneficiaries'),
                       onSort: onSort,
                     ),DataColumn(
-                      label: Text('Complete'),
+                      label: Text('Last Disbursement'),
                       onSort: onSort,
                     ),DataColumn(
-                      label: Text('Close'),
+                      label: Text('Pending Sanction'),
                       onSort: onSort,
                     ),DataColumn(
-                      label: Text('Action'),
+                      label: Text('Proposed Amount'),
                       onSort: onSort,
                     )
                   ],
@@ -123,7 +123,7 @@ class _TaskListPageState extends State<TaskListPage> {
 
 
                         DataCell(
-                          Badges(text: "Add Task", colorValue: 0xff00b0f0),
+                          Text(itemRow.close.toString(),style: GoogleFonts.nunito(fontSize: 15,color: Colors.black),),
                           onTap: (){print(itemRow.id);},
                         ),
 

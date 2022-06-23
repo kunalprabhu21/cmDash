@@ -26,7 +26,7 @@ class BuildMonthView extends StatelessWidget {
       events: _sampleEvents,
         daysOfTheWeekBuilder: (dayIndex) {
           return Padding(
-            padding: const EdgeInsets.only(bottom: 4.0),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Text(
               labels[dayIndex],
               style: Theme.of(context).textTheme.headline2,

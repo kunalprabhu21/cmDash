@@ -308,7 +308,7 @@ class _ViewPageState extends State<ViewPage> {
                                   onPressed: (){
                                     customDialog(
                                       context,Column(
-                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text('Take up a unit project to facilitate the research scholars of indexing, transcribing and preparing summaries of Modi-Marathi and Persian records'),
                                         SizedBox(height: 10,),

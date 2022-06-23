@@ -35,6 +35,9 @@ dependencies:
   readmore:
   connectivity_plus:
   fluttertoast:
+  shared_preferences:
+  photo_view:
+  advance_pdf_viewer:
 
 dev_dependencies:
   flutter_test:

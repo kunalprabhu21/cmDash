@@ -60,8 +60,10 @@ class _HomeState extends State<Home> {
         //   ],
         // ),
 
-        computer: Row(
+        computer: Stack(
           children: [
+
+            Expanded(child: DashboardPage()),
             AnimatedContainer (
               duration: Duration (milliseconds: 200),
               width: controllerCalendar.menuWidth,
@@ -69,7 +71,6 @@ class _HomeState extends State<Home> {
               // height: 40,
               color: Colors.white,
             ),
-            Expanded(child: DashboardPage()),
 
           ],
         ),

@@ -18,6 +18,7 @@ class TableController extends ChangeNotifier {
   bool get isLoading => _isLoading;
   List<Records> get reportList => _reportList;
   List<Budget> get budgetList => _budgetList;
+  List<Budget> get budgetSearchList => _budgetSearchList;
 
   set isLoading(bool value) {
     _isLoading = value;
@@ -44,15 +45,15 @@ class TableController extends ChangeNotifier {
     List<Budget> results = [];
 
     if (enteredKeyword.isEmpty) {
-      results = _budgetSearchList;
+      results = budgetList;
     } else {
-      results = _budgetSearchList
+      results = budgetList
           .where((user) =>
           user.department!.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       // we use the toLowerCase() method to make it case-insensitive
     }
-    _budgetList = results;
+    _budgetSearchList = results;
 
     // Refresh the UI
     notifyListeners();
@@ -73,9 +74,8 @@ class TableController extends ChangeNotifier {
     budgetList.add(records1);
     budgetList.add(records2);
 
-    _budgetSearchList.add(records);
-    _budgetSearchList.add(records1);
-    _budgetSearchList.add(records2);
+    _budgetSearchList = budgetList;
+
 
 
 

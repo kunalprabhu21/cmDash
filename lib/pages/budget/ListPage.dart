@@ -134,7 +134,7 @@ class _ListPageState extends State<ListPage> {
                       onSort: onSort,
                     )
                   ],
-                  rows:controller.budgetList.map(
+                  rows:controller.budgetSearchList.map(
                         (itemRow) => DataRow(
                       cells: [
                         DataCell(
@@ -204,26 +204,26 @@ class _ListPageState extends State<ListPage> {
 
   void onSort(int columnIndex, bool ascending) {
     if (columnIndex == 0) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, user1.id, user2.id));
     } else if (columnIndex == 1) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, user1.department, user2.department));
     } else if (columnIndex == 2) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, '${user1.total}', '${user2.total}'));
     } else if (columnIndex == 3) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, '${user1.delivered}', '${user2.delivered}'));
     } else if (columnIndex == 4) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, '${user1.with_govt}', '${user2.with_govt}'));
     } else if (columnIndex == 5) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, '${user1.with_dept}', '${user2.with_dept}'));
     }
     else if (columnIndex == 6) {
-      controller1.budgetList.sort((user1, user2) =>
+      controller1.budgetSearchList.sort((user1, user2) =>
           compareString(ascending, '${user1.yet_to_start}', '${user2.yet_to_start}'));
     }
 

@@ -77,8 +77,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         //     )
         //   ],
         // ),
-        computer: Row(
+        computer: Stack(
           children: [
+            Expanded(
+              // It takes 5/6 part of the screen
+                flex: 6,
+                child: CalendarViewPage()
+            ),
             AnimatedContainer (
               duration: Duration (milliseconds: 200),
               width: controllerMenu.menuWidth,
@@ -86,11 +91,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               // height: 40,
               color: Colors.white,
             ),
-            Expanded(
-              // It takes 5/6 part of the screen
-                flex: 6,
-                child: CalendarViewPage()
-            ),
+
           ],
         ),
       ),

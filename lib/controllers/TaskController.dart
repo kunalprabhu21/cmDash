@@ -48,9 +48,9 @@ class TaskController extends ChangeNotifier {
     _isLoading = true;
     _taskList.clear();
     _taskSearchList.clear();
-    Task task = new Task(id: "1", officers: "Amir Y.Parab - Law)", open: 1, complete: 0, close: 0);
-    Task task2 = new Task(id: "1", officers: "Arjun Parab - CM Office", open: 2, complete: 1, close: 1);
-    Task task3   = new Task(id: "1", officers: "Blossom Sofia Pereira - Archives", open: 2, complete: 0, close: 0);
+    Task task = new Task(id: "1", officers: "Laadli Laxmi", open: 1, complete: 0, close: 0);
+    Task task2 = new Task(id: "1", officers: "Griha Aadhar", open: 2, complete: 1, close: 1);
+    Task task3   = new Task(id: "1", officers: "DSSS", open: 2, complete: 0, close: 0);
 
 
     taskList.add(task);

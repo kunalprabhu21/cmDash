@@ -228,7 +228,27 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   Expanded(child: CustomTextField("Email", "Email", Colors.grey, Colors.grey, Colors.grey, controllerTask.email))
                 ],
               ),
-              // SizedBox(height: Constants.SizedBoxHeight,),
+              SizedBox(height: Constants.SizedBoxHeight,),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    Checkbox(
+
+                      value: false,
+                      onChanged: (newValue) {
+                        setState(() {
+                          // checkedValue = newValue;
+                        });
+                      },
+                      //  <-- leading Checkbox
+                    ),
+                    SizedBox(width: 5,),
+                    Text("Send SMS & Email intimation",style: GoogleFonts.nunito(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+              ),
+              SizedBox(height: Constants.SizedBoxHeight,),
               Row(
                 children: [
                   CustomButtons().customElevatedButton("Save",Colors.green)!,
@@ -352,7 +372,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   CustomTextField("Location","Location",Color(0xffededed),Color(0xffededed),Color(0xffededed),controllerTask.lcoation,prefixIcon: Icons.location_pin,),
                   CustomTextField("Description(if any)","Description(if any)",Color(0xffededed),Color(0xffededed),Color(0xffededed),controllerTask.lcoation,prefixIcon: Icons.description,),
                   SizedBox(height: Constants.SizedBoxHeight,),
-                  CustomButtons().customElevatedButton("Submit",Colors.green)!,
+                  Row(
+                    children: [
+                      CustomButtons().customElevatedButton("Save Event",Colors.green)!,
+                      SizedBox(width: 10,),
+                      CustomButtons().customElevatedButton("Reset",Colors.orangeAccent)!,
+                    ],
+                  ),
                   SizedBox(height: Constants.SizedBoxHeight,),
                   Container(
                     color: Color(0xffeaf1f7),

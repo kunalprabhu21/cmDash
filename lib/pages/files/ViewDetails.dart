@@ -2,6 +2,7 @@
 import 'package:cm_dashboard/controllers/TableController.dart';
 import 'package:cm_dashboard/models/Report.dart';
 import 'package:cm_dashboard/pages/FileTaskDetails.dart';
+import 'package:cm_dashboard/pages/PhotoViewer.dart';
 import 'package:cm_dashboard/pages/widgets/Badges.dart';
 import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
@@ -269,12 +270,17 @@ class _ViewDetailsState extends State<ViewDetails> {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset("images/pdf.png",height: 30,width: 30,),
-                                    Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
-                                  ],
+                                GestureDetector(
+                                  onTap:(){
+                                    push(context, PhotoViewer());
+                                 },
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Image.asset("images/pdf.png",height: 30,width: 30,),
+                                      Text("Ramdas R Volvoikar.pdf",style: GoogleFonts.nunito(fontSize: 14,color: Colors.blue,fontWeight: FontWeight.w600),),
+                                    ],
+                                  ),
                                 ),
                                 VerticalDivider(width: 10,color: Colors.amber,),
                                 Column(

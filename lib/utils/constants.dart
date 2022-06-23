@@ -202,20 +202,35 @@ push(context, page){
   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>page));
 }
 
+pushReplacement(context,page){
+  Navigator.of(context).pushReplacement(
+      new MaterialPageRoute(builder: (context) =>page));
+}
+
 pop(context){
   Navigator.of(context).pop();
 }
 
-showErrorToast(String message){
-  Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER_LEFT,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0
-  );
+showErrorToast(String message ,context){
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(message),backgroundColor: Colors.redAccent,duration: Duration(seconds: 1),
+  ),);
+}
+
+showSuccessToast(String message ,context){
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(message),backgroundColor: Colors.green,duration: Duration(seconds: 1),
+  ),);
+}
+
+progressIndicator(context){
+  showDialog(context: context, builder: (context){
+    return Material(
+        color: Colors.transparent,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ));
+  });
 }
 //
 
