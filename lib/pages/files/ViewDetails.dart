@@ -132,7 +132,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                 ),
               ),
               SizedBox(height: 20,),
-              controller.isLoading ? CircularProgressIndicator() :
+              // controller.isLoading ? CircularProgressIndicator() :
 
 
               Text("List of OPEN files",style: Theme.of(context).textTheme.headline2,),

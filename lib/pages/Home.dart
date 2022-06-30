@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
         computer: Stack(
           children: [
 
-            Expanded(child: DashboardPage()),
+            DashboardPage(),
             AnimatedContainer (
               duration: Duration (milliseconds: 200),
               width: controllerCalendar.menuWidth,

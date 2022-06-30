@@ -3,13 +3,17 @@
 import 'package:cm_dashboard/pages/BudgetList.dart';
 import 'package:cm_dashboard/pages/Files.dart';
 import 'package:cm_dashboard/pages/Tasks.dart';
+import 'package:cm_dashboard/pages/todo/TodoList.dart';
 import 'package:cm_dashboard/pages/widgets/CustomCards.dart';
+import 'package:cm_dashboard/routes.dart';
 import 'package:cm_dashboard/users.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cm_dashboard/utils/constants.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
-
+import 'dart:html' as html;
 class Todo {
   String name;
   bool enable;
@@ -27,11 +31,7 @@ class _DashboardPageState extends State<DashboardPage> {
   final columns = ['id', 'Department', 'Open','Completed','Pending','Closed'];
 
 
-  @override
-  void initState() {
-    super.initState();
 
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +91,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               SizedBox(height: Constants.SizedBoxHeight,),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.height / 2,
@@ -183,6 +184,20 @@ class _DashboardPageState extends State<DashboardPage> {
                           )
                         ],
                       ),
+                    ),
+
+                  ),
+                  SizedBox(width: 10,),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 2,
+                    width: MediaQuery.of(context).size.width/3,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      child: TodoList()
                     ),
 
                   ),

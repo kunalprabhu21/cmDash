@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 String localUserDataKey = 'userDataKey';
@@ -27,6 +29,13 @@ class SharedPref {
   remove(String key) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.remove(key);
+  }
+
+  Future<String?> readParsedValue(String key,String subKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    var user = prefs.getString(key);
+    var parseStringToJson = jsonDecode(user!);
+    return parseStringToJson[subKey];
   }
 
 }

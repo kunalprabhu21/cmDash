@@ -49,7 +49,7 @@ class TableController extends ChangeNotifier {
     } else {
       results = budgetList
           .where((user) =>
-          user.department!.toLowerCase().contains(enteredKeyword.toLowerCase()))
+          user.department.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       // we use the toLowerCase() method to make it case-insensitive
     }

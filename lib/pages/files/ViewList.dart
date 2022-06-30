@@ -3,10 +3,12 @@ import 'package:cm_dashboard/controllers/TableController.dart';
 import 'package:cm_dashboard/models/Report.dart';
 import 'package:cm_dashboard/pages/FilesDetails.dart';
 import 'package:cm_dashboard/pages/files/ViewDetails.dart';
+import 'package:cm_dashboard/routes.dart';
 
 import 'package:cm_dashboard/users.dart';
 import 'package:flutter/material.dart';
 import 'package:cm_dashboard/utils/constants.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Todo {
@@ -167,8 +169,7 @@ class ViewListState extends State<ViewList> {
                       DataCell(
                         Text(itemRow.department,style: GoogleFonts.nunito(fontSize: 15,color: Colors.black),),
                         onTap: (){
-                          Navigator.of(context).pushReplacement(
-                              new MaterialPageRoute(builder: (context) => new FilesDetails()));
+                          Get.toNamed(RouteHelper.getFileDetailsRoute());
                         },
                       ),
 

@@ -8,8 +8,11 @@ import 'package:cm_dashboard/controllers/TableController.dart';
 import 'package:cm_dashboard/controllers/TaskController.dart';
 import 'package:cm_dashboard/pages/AddTask.dart';
 import 'package:cm_dashboard/pages/AppointmentScreen.dart';
+import 'package:cm_dashboard/pages/Files.dart';
 import 'package:cm_dashboard/pages/Splash.dart';
+import 'package:cm_dashboard/routes.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:cm_dashboard/utils/ThemeConfig.dart';
 import 'package:flutter/material.dart';
@@ -51,9 +54,6 @@ void main() {
           ChangeNotifierProvider<LoginController>(
             create: (BuildContext context) => LoginController(),
           ),
-          ChangeNotifierProvider<InternetController>(
-            create: (BuildContext context) => InternetController(),
-          ),
         ],
         child: MyApp(),
       ),
@@ -66,11 +66,12 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeNotifier>(
         builder: (context, theme, _) => CalendarControllerProvider(
           controller: EventController(),
-          child: MaterialApp(
+          child: GetMaterialApp(
+            initialRoute: RouteHelper.splash,
+            getPages: RouteHelper.routes,
             debugShowCheckedModeBanner: false,
             title: 'Flutter Admin Panel',
             theme: theme.getTheme(),
-            home: SplashScreen(),
           ),
         )
     );

@@ -38,6 +38,9 @@ dependencies:
   shared_preferences:
   photo_view:
   advance_pdf_viewer:
+  crypto:
+  platform_device_id_web:
+  get: ^4.6.1
 
 dev_dependencies:
   flutter_test:

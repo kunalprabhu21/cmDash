@@ -1,5 +1,12 @@
 
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:cm_dashboard/models/Status.dart';
+import 'package:cm_dashboard/utils/sharedPref.dart';
+import 'package:crypto/crypto.dart';
+import 'package:platform_device_id_platform_interface/platform_device_id_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -137,7 +144,7 @@ Future<String> selectTime(BuildContext context,String type) async {
 
       selectedTime = picked!;
 
-      return picked!.format(context);
+      return picked.format(context);
 
 }
 
@@ -232,5 +239,57 @@ progressIndicator(context){
         ));
   });
 }
+
+// Future<String?> getId() async {
+//   var deviceInfo = DeviceInfoPlugin();
+//   if (Platform.isIOS) { // import 'dart:io'
+//     var iosDeviceInfo = await deviceInfo.iosInfo;
+//     return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+//   } else if(Platform.isAndroid) {
+//     var androidDeviceInfo = await deviceInfo.androidInfo;
+//     return androidDeviceInfo.androidId; // unique ID on Android
+//   }
+// }
+
+Future<String?> deviceInfo() async{
+
+  return await PlatformDeviceIdPlatform.instance.getDeviceId();
+}
+
+String barSpereratedString(List<String> params) {
+  String s = params.join('|');
+  return s;
+}
+
+
+Future<String> encryptPassword(String password) async {
+
+  SharedPref sharedPref = SharedPref();
+  final userInfo = await sharedPref.read("appAuth");
+  var jsonParseUserInfo = jsonDecode(userInfo!);
+  String token = jsonParseUserInfo['access_token'];
+  String tokenSubString = token.substring(0,5);
+  log('token: $token');
+  var md5hash = md5.convert(utf8.encode(password)).toString();
+  var md5hash2 = md5.convert(utf8.encode(md5hash)).toString();
+  var bytes2 = utf8.encode(md5hash2);
+
+  // data being hashed
+  var sha256Pass = sha256.convert(bytes2);
+  return sha256Pass.toString() + tokenSubString;
+
+}
+
+bool? checkDateDiff(String fromDate, String toDate){
+  var parsedDateFrom = DateTime.parse(fromDate);
+  var parsedDateTo = DateTime.parse(toDate);
+
+
+  return true;
+
+}
+
+
+
 //
 

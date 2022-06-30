@@ -69,6 +69,12 @@ class TaskController extends ChangeNotifier {
 
   }
 
+  addToDo(context,details){
+
+
+
+  }
+
 
 
 }

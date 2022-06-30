@@ -212,6 +212,13 @@
             </list>
           </value>
         </entry>
+        <entry key="get">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="google_fonts">
           <value>
             <list>
@@ -384,6 +391,20 @@
           <value>
             <list>
               <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="platform_device_id_platform_interface">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_platform_interface-1.0.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="platform_device_id_web">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_web-1.0.0/lib" />
             </list>
           </value>
         </entry>
@@ -620,6 +641,7 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_cache_manager-3.3.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-2.3.3/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib" />
@@ -645,6 +667,8 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/photo_view-0.14.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_platform_interface-1.0.0/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_web-1.0.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.4/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/provider-5.0.0/lib" />

@@ -1,6 +1,6 @@
 {
-    "name": "admin_panel_responsive_flutter",
-    "short_name": "admin_panel_responsive_flutter",
+    "name": "cm_dashboard",
+    "short_name": "cm_dashboard",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

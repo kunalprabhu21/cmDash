@@ -135,8 +135,8 @@ class Body extends StatelessWidget {
                 height: 50,
                 child: Center(child: Text("Sign In"))),
             onPressed: (){
-              // controller_.logInUser(context);
-              pushReplacement(context, Home());
+              controller_.logInUser(context);
+              // pushReplacement(context, Home());
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.deepPurple,

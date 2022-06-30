@@ -66,7 +66,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
         return Container(
           width: MediaQuery.of(context).size.width / 2,
-          child: Wrap(
+          child: Column(
             children: [
               SizedBox(height: Constants.SizedBoxHeight,),
               Text("Select Type",style: GoogleFonts.nunito(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),

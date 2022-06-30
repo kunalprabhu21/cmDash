@@ -71,47 +71,17 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             ),
           Spacer(),
           if (ResponsiveLayout.isComputer(context))
-            ...List.generate(
-              _buttonNames.length,
-              (index) => TextButton(
-                onPressed: () {
-                  setState(() {
-                    _currentSelectedButton = index;
-                  });
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(Constants.kPadding * 2),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        _buttonNames[index],
-                        style: TextStyle(
-                          color: _currentSelectedButton == index
-                              ? Colors.white
-                              : Colors.white70,
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(Constants.kPadding / 2),
-                        width: 60,
-                        height: 2,
-                        decoration: BoxDecoration(
-                          gradient: _currentSelectedButton == index
-                              ? LinearGradient(
-                                  colors: [
-                                    Constants.red,
-                                    Constants.orange,
-                                  ],
-                                )
-                              : null,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text("Overview"),
+                SizedBox(width: 50,),
+                Text("Revenue"),
+                SizedBox(width: 50,),
+                Text("Sales"),
+                SizedBox(width: 50,),
+                Text("Control"),
+              ],
             )
           else
             Padding(

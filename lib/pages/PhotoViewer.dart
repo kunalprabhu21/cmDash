@@ -33,10 +33,8 @@ class _PhotoViewerState extends State<PhotoViewer> {
   @override
   Widget build(BuildContext context) {
     final controllerCalendar = context.watch<MenuController>();
-    ui.platformViewRegistry.registerViewFactory(
-      imageUrl,
-          (int viewId) => ImageElement()..src = imageUrl,
-    );
+
+
     return Scaffold(
       key: controllerCalendar.scaffoldKey,
       appBar: PreferredSize(

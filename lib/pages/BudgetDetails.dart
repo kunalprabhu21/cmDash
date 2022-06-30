@@ -8,9 +8,11 @@ import 'package:cm_dashboard/pages/widgets/SideBar.dart';
 import 'package:cm_dashboard/pages/widgets/AppBar.dart';
 import 'package:cm_dashboard/utils/responsive_layout.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 
 class BudgetDetails extends StatefulWidget {
@@ -26,6 +28,15 @@ class _BudgetDetailsState extends State<BudgetDetails> {
     Icon(Icons.list, size: 30),
     Icon(Icons.compare_arrows, size: 30),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    html.window.onUnload.listen((event) async {
+      if (kIsWeb) html.window.location.reload();
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
